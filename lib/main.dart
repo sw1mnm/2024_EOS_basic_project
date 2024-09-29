@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'EOS ToDoList',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        fontFamily: 'Pretendard',
         useMaterial3: true,
       ),
       home: const MyHomePage(),
@@ -28,53 +29,62 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
         title: Text('EOS ToDoList'),
-        leading: Icon(Icons.check_box_outlined),
+        leading: Image.asset('assets/images/eos_logo.png'),
       ),
-      body: Container(
-        height: 200,
-        color: Colors.lightGreen.withOpacity(0.3),
-        padding: EdgeInsets.all(25),
-        child: Row(
-          children: [
-            Container(
-              height: 150,
-              width: 150,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 10,
-                  color: Colors.grey,
-                ),
-                color: Colors.white,
-              ),
-              child: Container(
-                  child: Icon(
-                Icons.person,
-                size: 100,
-                color: Colors.grey,
-              )),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: Column(
+        children: [
+          Container(
+            height: 200,
+            padding: EdgeInsets.all(25),
+            child: Row(
               children: [
-                Text('EOS'),
-                Text(
-                  '최수영',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
+                Container(
+                  height: 140,
+                  width: 140,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 10,
+                      color: Colors.grey,
+                    ),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(70),
+                  ),
+                  child: Center(
+                    child: Image.asset('assets/images/eos_logo.png'),
                   ),
                 ),
-                Text('나를 소개하는 한마디!')
+                SizedBox(
+                  width: 35,
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '최수영',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text('과탑이 될테야!!!!')
+                    ],
+                  ),
+                )
               ],
-            )
-          ],
-        ),
+            ),
+          ),
+          Container(
+            height: 500,
+            color: Color(0xFFA4C639).withOpacity(0.1),
+          )
+        ],
       ),
     );
   }
