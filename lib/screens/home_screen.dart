@@ -1,3 +1,4 @@
+import 'package:eos_todolist/screens/setting_screen.dart';
 import 'package:eos_todolist/widgets/add_button.dart';
 import 'package:eos_todolist/widgets/todo_item.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,17 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
           title: Text('EOS ToDoList'),
           leading: Image.asset('assets/images/eos_logo.png'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingScreen(),
+                      ));
+                },
+                icon: Icon(Icons.settings_rounded))
+          ],
         ),
         body: Column(
           children: [
@@ -45,17 +57,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     height: 140,
                     width: 140,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 10,
-                        color: Colors.grey,
-                      ),
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(70),
-                    ),
-                    child: Center(
-                      child: Image.asset('assets/images/eos_logo.png'),
-                    ),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(80),
+                        child: Image.asset(
+                          'assets/images/swim.png',
+                          fit: BoxFit.cover,
+                        )),
                   ),
                   SizedBox(
                     width: 35,
